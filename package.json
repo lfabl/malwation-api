@@ -4,13 +4,24 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon --exec npm run babel-node -- ./index.js",
+    "babel-node": "babel-node --presets=latest",
+    "build": "babel source -d dist"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1",
-    "express-graphql": "^0.12.0",
-    "graphql": "^15.5.0"
+    "express": "4.17.1",
+    "express-graphql": "0.12.0",
+    "graphql": "15.5.0",
+    "graphql-tools": "^7.0.4"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-latest": "^6.24.1",
+    "eslint": "7.22.0",
+    "eslint-config-airbnb": "18.2.1",
+    "nodemon": "^2.0.7"
   }
 }
