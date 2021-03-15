@@ -3,8 +3,12 @@ import {
     graphqlHTTP
 } from 'express-graphql';
 import schema from './src';
+import cors from 'cors';
  
 var app = express();
+
+app.use(cors());
+
 app.use('/graphql', graphqlHTTP({
     schema: schema,
     graphiql: true

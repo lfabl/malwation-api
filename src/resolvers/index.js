@@ -1,9 +1,9 @@
-import mutationTest from './mutations/test';
+import signup from './mutations/signup';
 import queryTest from './queries/test';
 
 const resolvers = {
     Mutation: {
-        test: mutationTest
+        signup
     },
     Query: {
         test: queryTest

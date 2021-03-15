@@ -1,5 +1,9 @@
 export default `
     type Mutation {
-        test: String
+        signup(
+            fullName: String!,
+            userName: String!,
+            password: String!
+        ): String
     }
 `;
