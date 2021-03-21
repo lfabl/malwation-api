@@ -90,13 +90,30 @@ const signup = async (payload, args, context) => {
     const register = await r
         .db("malwation")
         .table("users")
-        .insert(newUser)
+        .insert(newUser, {
+            returnChanges: true 
+        })
         .run();
     if(register.inserted) {
-        return {
-            message: "Kayıt başarılı.",
-            code: 200
-        };
+        const data = register.changes[0].new_val;
+        return await r
+            .db("malwation")
+            .table("wallets")
+            .insert({
+                "userID": data.id
+            })
+            .then(() => {
+                return {
+                    message: "Kayıt başarılı.",
+                    code: 200
+                };
+            })
+            .catch(e => {
+                return {
+                    message: e.message,
+                    code: 504
+                };
+            });
     } else {
         return {
             message: "Kayıt oluşturulamadı.",

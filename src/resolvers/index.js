@@ -4,6 +4,7 @@ import signup from './mutations/signup';
 // Queries:
 import signin from './queries/signin';
 import tokenControl from './queries/tokenControl';
+import home from './queries/home';
 
 const resolvers = {
     Mutation: {
@@ -11,7 +12,8 @@ const resolvers = {
     },
     Query: {
         signin,
-        tokenControl
+        tokenControl,
+        home
     }
 };
 export default resolvers;

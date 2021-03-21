@@ -7,6 +7,7 @@ export default `
         ): Signin,
         tokenControl(
             token: String!
-        ): TokenControl
+        ): TokenControl,
+        home: Home
     }
 `;
