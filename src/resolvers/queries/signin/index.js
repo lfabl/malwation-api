@@ -76,11 +76,14 @@ const signin = async (payload, args, context) => {
             code: 503
         };
     } else {
+        let jwtOptions = {
+        };
+
+        if(args.rememberMe) jwtOptions.expiresIn = "1h";
+
         const newToken = jwt.sign({
             "userName": user.userName
-        }, JWT_KEY, {
-            "expiresIn": "1h"
-        });
+        }, JWT_KEY, jwtOptions);
         const tokenSave = await r
             .db("malwation")
             .table("users")

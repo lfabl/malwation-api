@@ -2,7 +2,8 @@ export default `
     type Query {
         signin(
             userName: String!,
-            password: String!
+            password: String!,
+            rememberMe: Boolean
         ): Signin
     }
 `;
