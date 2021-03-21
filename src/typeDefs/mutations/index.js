@@ -4,6 +4,6 @@ export default `
             fullName: String!,
             userName: String!,
             password: String!
-        ): String
+        ): Default
     }
 `;
