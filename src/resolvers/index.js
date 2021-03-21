@@ -1,12 +1,15 @@
+// Mutations:
 import signup from './mutations/signup';
-import queryTest from './queries/test';
+
+// Queries:
+import signin from './queries/signin';
 
 const resolvers = {
     Mutation: {
         signup
     },
     Query: {
-        test: queryTest
+        signin
     }
 };
 export default resolvers;

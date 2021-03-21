@@ -5,6 +5,12 @@ import {
 import schema from './src';
 import cors from 'cors';
 import rateLimit from 'express-request-limit';
+import {
+    setJWTKey 
+} from './src/constants';
+import {
+    r
+} from './src/database';
 
 var app = express();
 const rateLimitOptions = {
@@ -21,5 +27,11 @@ app.use('/graphql', rateLimit(rateLimitOptions), graphqlHTTP({
     schema: schema,
     graphiql: true
 }));
+
+const createJWTKey = async () => {
+    const newKey = await r.uuid();
+    setJWTKey(newKey);
+};
+createJWTKey();
 
 app.listen(4000, () => console.log('Now browse to localhost:4000/graphql.'));

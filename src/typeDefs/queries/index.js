@@ -1,5 +1,8 @@
 export default `
     type Query {
-        test: String
+        signin(
+            userName: String!,
+            password: String!
+        ): Signin
     }
 `;
