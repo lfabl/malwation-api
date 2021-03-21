@@ -14,7 +14,7 @@ import {
 
 var app = express();
 const rateLimitOptions = {
-    timeout: 1000,
+    timeout: 300,
     exactPath: true,
     cleanUpInterval: 0,
     errStatusCode: 429,

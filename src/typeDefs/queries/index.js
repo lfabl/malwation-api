@@ -4,6 +4,9 @@ export default `
             userName: String!,
             password: String!,
             rememberMe: Boolean
-        ): Signin
+        ): Signin,
+        tokenControl(
+            token: String!
+        ): TokenControl
     }
 `;
